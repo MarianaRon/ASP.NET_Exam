@@ -1,0 +1,47 @@
+@model IEnumerable<ASP.NET_Exam.Models.UserDetailsModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+@if (User.IsInRole("Manager")) {
+    <p>
+        <a asp-action="Create">Create New</a>
+    </p>
+}
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.UserName)
+            </td>
+            <td>
+                @if (User.IsInRole("TopManager")) {
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    <span>|</span>
+                }
+                @if (User.IsInRole("Manager")) {
+                    <a asp-action="ExtendedDetails" asp-route-id="@item.Id">Details</a>
+                    <span>|</span>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                }
+                else {
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a>
+                }
+            </td>
+        </tr>
+    }
+    </tbody>
+</table>

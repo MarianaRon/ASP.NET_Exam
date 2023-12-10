@@ -1,0 +1,42 @@
+@model ASP.NET_Exam.Data.Schema.Schedule
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Schedule</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MaxGroupSize" class="control-label"></label>
+                <input asp-for="MaxGroupSize" class="form-control"/>
+                <span asp-validation-for="MaxGroupSize" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="StartDateTime" class="control-label"></label>
+                <input asp-for="StartDateTime" class="form-control"/>
+                <span asp-validation-for="StartDateTime" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TrainerId" class="control-label"></label>
+                <select asp-for="TrainerId" class="form-control" asp-items="ViewBag.TrainerId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="HallId" class="control-label"></label>
+                <select asp-for="HallId" class="form-control" asp-items="ViewBag.HallId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

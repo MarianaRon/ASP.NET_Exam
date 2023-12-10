@@ -1,0 +1,57 @@
+@model ASP.NET_Exam.Models.UserExtendedDetailsModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Users</h4>
+<hr/>
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <h2>Edit account UserName.</h2>
+            <hr/>
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div class="form-floating mb-3">
+                <input asp-for="Email" class="form-control" autocomplete="username" type="email" aria-required="true" placeholder="name@example.com"/>
+                <label asp-for="Email">Email</label>
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="PhoneNumber" class="form-control" autocomplete="phone-number" aria-required="true" placeholder="+380******123"/>
+                <label asp-for="PhoneNumber">Phone number</label>
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="UserName" class="form-control" autocomplete="full-name" aria-required="true" placeholder="John Doe"/>
+                <label asp-for="UserName">Full name</label>
+                <span asp-validation-for="UserName" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="BirthDate" class="form-control" autocomplete="birth-date" type="date" aria-required="true"/>
+                <label asp-for="BirthDate">Birth date</label>
+                <span asp-validation-for="BirthDate" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <input asp-for="Gender" class="form-control" autocomplete="gender" aria-required="true"/>
+                <label asp-for="Gender">Gender</label>
+                <span asp-validation-for="Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RoleNames" class="control-label"></label>
+                <select asp-for="RoleNames" multiple class="form-control" asp-items="ViewBag.RoleName"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="SpecializationIdStrings" class="control-label"></label>
+                <select asp-for="SpecializationIdStrings" multiple class="form-control" asp-items="ViewBag.SpecializationId"></select>
+            </div>
+            <button type="submit" class="w-100 btn btn-lg btn-primary">Save</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
